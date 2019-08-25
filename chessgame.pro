@@ -25,21 +25,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        bishop.cpp \
         board.cpp \
         chess.cpp \
         customchessview.cpp \
         element.cpp \
         king.cpp \
+        knight.cpp \
         main.cpp \
+        pawn.cpp \
+        queen.cpp \
+        rook.cpp \
         team.cpp \
         testingdummy.cpp
 
 HEADERS += \
+    bishop.h \
     board.h \
     chess.h \
+    chressmacros.h \
     customchessview.h \
     element.h \
     king.h \
+    knight.h \
+    pawn.h \
+    queen.h \
+    rook.h \
     team.h \
     testingdummy.h
 

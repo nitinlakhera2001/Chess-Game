@@ -26,9 +26,11 @@ private:
     QGraphicsRectItem **_rect;
    // QGraphicsTextItem * King = new QGraphicsTextItem();
     //King *_king;
+    void highlightRect(QGraphicsRectItem *rect);
     King _king[8];
 public:
     Board();
+    void updateBoard(QPoint *cursor_position);
     void getBoardScene(QGraphicsScene *scene);
     void viewBoard(QGraphicsView *view);
     void viewText(QGraphicsView *view);

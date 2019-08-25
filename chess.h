@@ -6,11 +6,13 @@
 #include<QMouseEvent>
 #include<QWidget>
 #include<QtWidgets>
+#include<QTimer>
 #define ELEMENT_BLACK 0
 #define ELEMENT_WHITE 1
 #include<QDebug>
 #include<QtWidgets>
 #include<QWidget>
+#include<QObject>
 #include "board.h"
 #include "team.h"
 #include "element.h"
@@ -22,11 +24,16 @@
  *
  * */
 
-class chess
+class chess : public QObject
 {
+   Q_OBJECT
+
 private:
+    QPoint  * _cursorPosition = new QPoint();
+    QTimer * timer;// = new QTimer();
     int _currentX;
     int _currentY;
+    //QWidget * _chessWidget = new QWidget;
     QGraphicsScene * _chessScene = new QGraphicsScene();
     customChessView *_chessView = new customChessView();
 
@@ -42,8 +49,13 @@ public:
     chess();
     void viewChess(); // view board, two teams and start page
     void getCurrentGrid();
-protected:
+    void printChessAll();
 
+
+public slots:
+    void updateChess();
+protected:
+   QPoint operator =(QPoint *point);
 
 };
 

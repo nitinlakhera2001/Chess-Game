@@ -86,12 +86,6 @@ void King :: getKingScene(QGraphicsScene *scene)
     scene -> addItem(_element);
 }
 
-void King::viewKing(QGraphicsView *view)
-{
-    QGraphicsScene *temp_scene = new QGraphicsScene();
-    temp_scene->addItem(_element);
-    view-> setScene(temp_scene);
-}
 
 int King::move(int x, int y)
 {

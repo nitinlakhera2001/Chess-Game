@@ -5,6 +5,11 @@
 #include<QGraphicsView>
 
 #include "king.h"
+#include "queen.h"
+#include "knight.h"
+#include"rook.h"
+#include "bishop.h"
+#include "pawn.h"
 
 
 
@@ -27,6 +32,12 @@ private:
     int _teamColor;
     QGraphicsScene * _teamScene = new QGraphicsScene();
     King * _teamKing;
+    Queen * _teamQueen;
+    Rook * _teamRook[2];
+    Bishop * _teamBishop[2];
+    Knight * _teamKnight[2];
+    Pawn * _teamPawn[2];
+
 
 
 
@@ -36,7 +47,6 @@ public:
 
 
     team(int team_color);
-    void viewTeam(QGraphicsView *view);
     void getTeamScene(QGraphicsScene *scene);
 };
 

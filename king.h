@@ -13,7 +13,6 @@ public:
     King(int x,int y, int element_color,QGraphicsScene *scene);
 
     void getKingScene(QGraphicsScene *scene);
-    void viewKing(QGraphicsView *view);
     int move(int x,int y);
     bool checkKingRule();
 

@@ -1,0 +1,17 @@
+#ifndef CHRESSMACROS_H
+#define CHRESSMACROS_H
+
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+#define WHITE_KING_POS
+
+
+
+
+#endif // CHRESSMACROS_H
