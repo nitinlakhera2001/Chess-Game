@@ -1,8 +1,7 @@
 #include "knight.h"
 #include<QDebug>
 
-#define KNIGHT_BLACK "\u265E"
-#define KNIGHT_WHITE "\u2658"
+
 Knight::Knight()
 {
 
@@ -12,7 +11,6 @@ Knight::Knight(int element_color)
     _elementColor = element_color;
     static int _blackKnightNum  = 0;
     static int _whiteKnightNum  = 0;
-    qDebug() << "inside Knight constructor:Arg: element_color";
 
     if(_elementColor == ELEMENT_BLACK && _blackKnightNum == 0)
     {

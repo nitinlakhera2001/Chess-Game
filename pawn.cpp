@@ -1,8 +1,6 @@
 #include "pawn.h"
 #include<QDebug>
 
-#define PAWN_BLACK "\u265F"
-#define PAWN_WHITE "\u2659"
 Pawn::Pawn()
 {
 
@@ -12,7 +10,6 @@ Pawn::Pawn(int element_color)
     _elementColor = element_color;
     static int _blackPawnNum  = 0;
     static int _whitePawnNum  = 0;
-    qDebug() << "inside Pawn constructor:Arg: element_color";
 
     if(_elementColor == ELEMENT_BLACK && _blackPawnNum <8 )
     {

@@ -10,11 +10,13 @@ class customChessView :  public QGraphicsView
 {
 
 private:
-    bool _mouseButtonPressedFlag =0;
+    bool _mouseButtonPressedFlag = false;
 
 public:
-    customChessView(QWidget *parent =0);
+    customChessView(QWidget *parent = 0);
     QPoint getCursorPosition();
+    bool isMouseButtonPressed();
+    void returnMousePressedAck(bool ack);
 protected:
     QPoint * _viewCursorPosition = new QPoint();
     virtual void mouseMoveEvent(QMouseEvent *event) override;

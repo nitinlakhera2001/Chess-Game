@@ -3,7 +3,10 @@
 #include<element.h>
 #include<QGraphicsScene>
 #include<QDebug>
-#define UFT8_CODE "\u265C"
+
+#define PAWN_BLACK "\u265F"
+#define PAWN_WHITE "\u2659"
+
 class Pawn : public Element
 {
 

@@ -2,9 +2,11 @@
 #define ROOK_H
 #include<element.h>
 #include<QGraphicsScene>
-#include<QgraphicsView>
 #include<QDebug>
-#define UFT8_CODE "\u265C"
+
+#define ROOK_BLACK "\u265C"
+#define ROOK_WHITE "\u2656"
+
 class Rook : public Element
 {
 

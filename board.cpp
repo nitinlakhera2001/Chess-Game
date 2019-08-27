@@ -1,4 +1,3 @@
-#include<QDebug>
 #include "board.h"
 void Board::highlightRect(QGraphicsRectItem *rect)
 {
@@ -16,40 +15,14 @@ Board::Board()
     }
 }
 
-void Board::updateBoard(QPoint *cursor_position)
+void Board::updateBoard(QPoint grid_point)
 {
-    QGraphicsRectItem * temp;
-    int current_x = cursor_position->x();
-    int current_y = cursor_position->y();
-    qDebug() << "I AM WHERE I AM";
-    qDebug() << "x:" << current_x;
-    qDebug() << "y:" << current_y;
-    temp = *(_rect+4) + 4;
-    qDebug() << "tempX: " << temp->pos().x();
-    qDebug() << "tempY: " << temp->y();
 
-    for(int i=0; i<_rowNum;i++)
-    {
-        for(int j=0; j< _columnNum;j++)
-        {
-            temp = *(_rect+i) + j;
-            if((i + j) % 2)
-                temp -> setBrush(QColor(125,143,191,255));
-            else
-                temp -> setBrush(QColor(243,245,244,255));
-
-             if(current_x > temp -> x() && current_x < (temp -> x() + _gridSize) && current_y >temp -> y() && current_y < temp -> y() + _gridSize)
-             {
-                 temp -> setBrush(QColor(184,194,218,255));
-                 qDebug() << "CONDITION SATISFIED";
-             }
-          }
-      }
+    highlightGrid(grid_point);
 }
 
 void Board::getBoardScene(QGraphicsScene *scene)
 {
-    qDebug() << "inside board :: getBoardScene";
     QGraphicsRectItem * temp;
     QBrush brush(Qt::CrossPattern);
     for(int i=0; i<_rowNum;i++)
@@ -73,7 +46,6 @@ void Board::getBoardScene(QGraphicsScene *scene)
 
 void Board :: viewBoard(QGraphicsView *view)
 {
-    qDebug() << "inside board :: viewBoard";
     QGraphicsRectItem * temp;
     QPainter painter;
     painter.setPen(Qt::gray);
@@ -94,19 +66,64 @@ void Board :: viewBoard(QGraphicsView *view)
         }
     }
     view -> setScene(_scene);
+    for(int i=0;i<_rowNum;i++)
+    {
+        for(int j=0;i<_columnNum;j++)
+        {
+            qDebug() << "(" << i+1 << "," << j + 1 <<") -> " << *(_rect+i) + j;
+        }
+    }
 
 }
-void Board :: viewText(QGraphicsView *view)
+
+bool Board::selectGrid(QPoint grid_point)
 {
-    qDebug() <<"Scene Address inside declaration" << _scene;
-    //_king = new King(0,0,1);//(0,5,0,_scene);
-    for(int i = 0; i < 8; i++)
-    {
-        _king[i].elementSetup(ELEMENT_WHITE);
-        _king[i].setPosition(i,0);
-        _king[i].addToScene(_scene);
-    }
-    view -> setScene(_scene);
+    QGraphicsRectItem * temp;
+    int temp_x = grid_point.x();
+    int temp_y = grid_point.y();
+    static QPoint *prev_grid_point = new QPoint();
+    prev_grid_point->setX(temp_x);
+    prev_grid_point->setY(temp_y);
+
+    temp = *(_rect+temp_x) + temp_y;
+    qDebug() << "inside highlight function";
+    qDebug() << "addres in function";// << temp;
+    temp-> setBrush(QColor(125,143,0,255));
+    return true;
+
 }
+
+void Board::highlightGrid(QPoint grid_point)
+{
+    QGraphicsRectItem * temp;
+    int current_x = grid_point.x();
+    int current_y = grid_point.y();
+    static QPoint *prev_grid_point = new QPoint();
+    int previous_x = prev_grid_point->x();
+    int previous_y = prev_grid_point->y();
+    temp = *(_rect+current_x) + current_y;
+    temp -> setBrush(QColor(184,194,218,255));
+
+    temp = *(_rect + previous_x) + previous_y;
+    if((previous_x + previous_y) % 2)
+        temp -> setBrush(QColor(125,143,191,255));
+    else
+        temp -> setBrush(QColor(243,245,244,255));
+
+
+    prev_grid_point->setX(current_x);
+    prev_grid_point->setY(current_y);
+
+
+    qDebug() << "inside highlight function";
+    qDebug() << "addres in function";// << temp;
+}
+
+int Board::getGridSize()
+{
+    return _gridSize;
+
+}
+
 
 

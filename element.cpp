@@ -6,8 +6,6 @@
 
 Element::Element()
 {
-    qDebug() <<" inside element default constructor";
-
     _xPos = 0;
     _yPos = 0;
     _element = new QGraphicsTextItem;
@@ -31,7 +29,6 @@ int Element ::  getScale()
 
 void Element :: setPosition(int x,int y)
 {
-    qDebug() << "inside setPosition";
     _xPos = x;
     _yPos = y;
     _updateElement();
@@ -39,7 +36,6 @@ void Element :: setPosition(int x,int y)
 }
 void Element :: _updateElement()
 {
-    qDebug() << "inside updateElement";
     _element -> setX(_xPos * 120 + OFFSET_X);// + 50 );
     _element -> setY(_yPos * 120 + OFFSET_Y);// + 50  );
 
@@ -74,6 +70,5 @@ void Element:: elementSetup(QString uft8_code,int element_color)
 
 void Element :: addToScene(QGraphicsScene *scene)
 {
-    qDebug() <<" inside addToScene";
     scene -> addItem(_element);
 }

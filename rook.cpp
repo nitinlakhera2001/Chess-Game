@@ -1,8 +1,7 @@
 #include "rook.h"
 #include<QDebug>
 
-#define ROOK_BLACK "\u265C"
-#define ROOK_WHITE "\u2656"
+
 Rook::Rook()
 {
 
@@ -12,7 +11,6 @@ Rook::Rook(int element_color)
     _elementColor = element_color;
     static int _blackRookNum  = 0;
     static int _whiteRookNum  = 0;
-    qDebug() << "inside Rook constructor:Arg: element_color";
 
     if(_elementColor == ELEMENT_BLACK && _blackRookNum == 0)
     {
@@ -48,7 +46,6 @@ Rook::Rook(int element_color)
 }
 void Rook :: getRookScene(QGraphicsScene *scene)
 {
-
     scene -> addItem(_element);
 }
 

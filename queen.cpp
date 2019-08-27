@@ -1,7 +1,6 @@
 #include "queen.h"
 #include<QDebug>
-#define QUEEN_BLACK "\u265B"
-#define QUEEN_WHITE  "\u2655"
+
 Queen::Queen()
 {
     qDebug() << "inside Queen default constructor";
@@ -43,7 +42,6 @@ Queen::Queen(int element_color)
 
 void Queen :: getQueenScene(QGraphicsScene *scene)
 {
-    qDebug() <<" inside addToScene";
     scene -> addItem(_element);
 }
 

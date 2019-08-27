@@ -1,9 +1,10 @@
 #ifndef KING_H
 #define KING_H
 #include<QGraphicsScene>
-#include <QGraphicsView>
 #include "element.h"
-#define BLACK_KING 1
+#define KING_BLACK "\u265A"
+#define KING_WHITE  "\u2654"
+
 class King : public Element
 {
 public:

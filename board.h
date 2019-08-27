@@ -4,8 +4,7 @@
 #include<QGraphicsRectItem>
 #include<QGraphicsView>
 #include<QDebug>
-#include "king.h"
-#include "element.h"
+
 
 /*The board class contain chess board design. it contains 8 x 8  squares of alternate color.
  * The Board will be called in chess class that contains a board, two teams. Individual team will contains members wit their common and specific properties
@@ -24,16 +23,16 @@ private:
     QGraphicsScene * _scene = new QGraphicsScene();
     QGraphicsView * _boardView = new QGraphicsView();
     QGraphicsRectItem **_rect;
-   // QGraphicsTextItem * King = new QGraphicsTextItem();
-    //King *_king;
     void highlightRect(QGraphicsRectItem *rect);
-    King _king[8];
+
 public:
     Board();
-    void updateBoard(QPoint *cursor_position);
+    void updateBoard(QPoint grid_point);
     void getBoardScene(QGraphicsScene *scene);
     void viewBoard(QGraphicsView *view);
-    void viewText(QGraphicsView *view);
+    bool selectGrid(QPoint grid_point);
+    void highlightGrid(QPoint grid_point);
+    int getGridSize();
 
 };
 

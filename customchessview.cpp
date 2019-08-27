@@ -10,6 +10,16 @@ QPoint customChessView::getCursorPosition()
 
 }
 
+bool customChessView::isMouseButtonPressed()
+{
+    return _mouseButtonPressedFlag;
+}
+
+void customChessView::returnMousePressedAck(bool ack)
+{
+ _mouseButtonPressedFlag = !ack;
+}
+
 void customChessView::mousePressEvent(QMouseEvent *event)
 {  
     QGraphicsView :: mousePressEvent(event);
@@ -24,9 +34,6 @@ void customChessView::mouseMoveEvent(QMouseEvent *event)
     QGraphicsView :: mouseMoveEvent(event);
     _viewCursorPosition->setX( event->pos().x());
     _viewCursorPosition->setY( event->pos().y());
-
-    qDebug() << "inside mouseMove   " <<" mousePressed: " << _mouseButtonPressedFlag;
-    _mouseButtonPressedFlag = false;//event->MouseButtonPress;
 
 
 }

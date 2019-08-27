@@ -2,7 +2,6 @@
 #include<QDebug>
 King::King()
 {
-    qDebug() << "inside King default constructor";
     _xPos = 0;
     _yPos = 0;
     _elementColor = ELEMENT_BLACK;
@@ -13,21 +12,20 @@ King::King()
 }
 King::King(int element_color)
 {
-    qDebug() << "inside King constructor:Arg: element_color";
     _elementColor = element_color;
 
     if(_elementColor == ELEMENT_BLACK)
     {
         _xPos = 5 - 1;
         _yPos = 1 - 1;
-        _uft8Code = "\u265A";
+        _uft8Code = KING_BLACK;
 
     }
     else if(_elementColor == ELEMENT_WHITE)
     {
         _xPos = 5 - 1;
         _yPos = 8 - 1;
-        _uft8Code = "\u2654";
+        _uft8Code = KING_WHITE;
     }
     else
         _uft8Code = "\u2663";
@@ -38,8 +36,6 @@ King::King(int element_color)
 }
 King :: King(int x,int y,int element_color)
 {
-    qDebug() << "inside King 1 constructor";
-
     _xPos = x;
     _yPos = y;
     _elementColor = element_color;
@@ -66,7 +62,6 @@ King :: King(int x,int y,int element_color)
 }
 King :: King(int x,int y, int element_color,QGraphicsScene *scene)
 {
-    qDebug() << "inside King 2 constructor";
     _xPos = x;
     _yPos = y;
     _elementColor = element_color;
@@ -82,7 +77,6 @@ King :: King(int x,int y, int element_color,QGraphicsScene *scene)
 
 void King :: getKingScene(QGraphicsScene *scene)
 {
-    qDebug() <<" inside addToScene";
     scene -> addItem(_element);
 }
 

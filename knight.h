@@ -3,7 +3,10 @@
 #include<element.h>
 #include<QGraphicsScene>
 #include<QDebug>
-#define UFT8_CODE "\u265C"
+
+#define KNIGHT_BLACK "\u265E"
+#define KNIGHT_WHITE "\u2658"
+
 class Knight : public Element
 {
 

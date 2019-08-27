@@ -31,8 +31,6 @@ class chess : public QObject
 private:
     QPoint  * _cursorPosition = new QPoint();
     QTimer * timer;// = new QTimer();
-    int _currentX;
-    int _currentY;
     //QWidget * _chessWidget = new QWidget;
     QGraphicsScene * _chessScene = new QGraphicsScene();
     customChessView *_chessView = new customChessView();
@@ -44,6 +42,8 @@ private:
     team  * _chessBlackTeam = new team(ELEMENT_BLACK);
     team  * _chessWhiteTeam = new team(ELEMENT_WHITE);
     Element *e = new Element();
+private:
+    QPoint gridPosition(); // Adapter to convert cursorPosition to grid value of rect
 
 public:
     chess();

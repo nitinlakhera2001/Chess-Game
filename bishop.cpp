@@ -1,8 +1,7 @@
 #include "bishop.h"
 #include<QDebug>
 
-#define BISHOP_BLACK "\u265D"
-#define BISHOP_WHITE "\u2657"
+
 Bishop::Bishop()
 {
 
@@ -12,7 +11,6 @@ Bishop::Bishop(int element_color)
     _elementColor = element_color;
     static int _blackBishopNum  = 0;
     static int _whiteBishopNum  = 0;
-    qDebug() << "inside Bishop constructor:Arg: element_color";
 
     if(_elementColor == ELEMENT_BLACK && _blackBishopNum == 0)
     {

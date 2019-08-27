@@ -3,7 +3,10 @@
 #include<QGraphicsScene>
 #include <QGraphicsView>
 #include "element.h"
-#define BLACK_QUEEN 1
+
+#define QUEEN_BLACK "\u265B"
+#define QUEEN_WHITE  "\u2655"
+
 class Queen : public Element
 {
 public:

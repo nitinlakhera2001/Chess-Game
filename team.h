@@ -3,7 +3,7 @@
 
 #include<QGraphicsScene>
 #include<QGraphicsView>
-
+#include<QDebug>
 #include "king.h"
 #include "queen.h"
 #include "knight.h"
@@ -36,7 +36,7 @@ private:
     Rook * _teamRook[2];
     Bishop * _teamBishop[2];
     Knight * _teamKnight[2];
-    Pawn * _teamPawn[2];
+    Pawn * _teamPawn[8];
 
 
 
@@ -48,6 +48,7 @@ public:
 
     team(int team_color);
     void getTeamScene(QGraphicsScene *scene);
+    bool checkMemberInGrid(QPoint grid_point);
 };
 
 #endif // TEAM_H

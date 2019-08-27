@@ -3,7 +3,10 @@
 #include<element.h>
 #include<QGraphicsScene>
 #include<QDebug>
-#define UFT8_CODE "\u265C"
+
+#define BISHOP_BLACK "\u265D"
+#define BISHOP_WHITE "\u2657"
+
 class Bishop : public Element
 {
 
